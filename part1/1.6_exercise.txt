@@ -1,0 +1,7 @@
+Dockerfile:
+  FROM devopsdockeruh/overwrite_cmd_exercise
+  CMD ["/bin/bash"]
+
+and commands:
+ - docker build -t docker-clock .
+ - docker run docker-clock -c  

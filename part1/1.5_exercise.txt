@@ -1,0 +1,23 @@
+TERM1:
+
+- docker run ubuntu
+- docker run -it --name ex15 ubuntu sh -c 'echo "Input website:"; read website; echo "Searching.."; sleep 1; curl http://$website;'
+
+- promt:> helsinki.fi
+- getting response:
+
+<!-- <!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+  <head>
+    <title>301 Moved Permanently</title>
+  </head>
+  <body>
+    <h1>Moved Permanently</h1>
+    <p>The document has moved <a href="http://www.helsinki.fi/">here</a>.</p>
+  </body>
+</html> -->
+
+TERM2:
+
+- docker exec -it ID bash
+- apt-get update && apt-get -y install curl </id>

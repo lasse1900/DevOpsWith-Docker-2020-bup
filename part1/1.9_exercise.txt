@@ -1,0 +1,5 @@
+commands used:
+  - docker run -p 80:80 devopsdockeruh/ports_exercise
+
+at web browser:
+  - localhost:30 > Ports configured correctly!!

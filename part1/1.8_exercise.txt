@@ -1,0 +1,5 @@
+I did crete directory structure on local pc /app/logs.txt
+
+command was:
+- docker run -v $(pwd)/app/logs.txt:/usr/app/logs.txt devopsdockeruh/first_volume_exercise
+
