@@ -1,0 +1,48 @@
+Front-Dockerfile:
+
+    FROM ubuntu:20.04 
+
+    WORKDIR /dist
+
+    RUN apt-get update && apt-get install -y curl
+    RUN curl -sL https://deb.nodesource.com/setup_10.x | bash
+    RUN apt-get update && apt-get install -y nodejs
+
+    COPY . .
+
+    RUN npm install
+
+    EXPOSE 5000
+
+    ENV API_URL=http://localhost:8000
+
+    CMD npm start
+
+
+Back-Dockerfile:
+
+    FROM ubuntu:20.04 
+
+    WORKDIR /dist
+
+    RUN apt-get update && apt-get install -y curl
+    RUN curl -sL https://deb.nodesource.com/setup_10.x | bash
+    RUN apt-get update && apt-get install -y nodejs
+
+    COPY . .
+
+    RUN npm install
+
+    EXPOSE 8000
+
+    ENV FRONT_URL=http://localhost:5000
+
+    CMD npm start
+
+Start commands:
+
+  - docker build -t front .
+  - docker build -t back .
+
+  - docker run -it -p 5000:5000 front
+  - docker run -v $(pwd)/logs.txt:/dist/logs.txt -it -p 8000:8000 back
