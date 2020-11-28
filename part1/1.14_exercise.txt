@@ -1,0 +1,22 @@
+Dockerfile: 
+
+  FROM ruby:2.6.0
+
+  # throw errors if Gemfile has been modified since Gemfile.lock
+  RUN bundle config --global frozen 1
+
+  WORKDIR /usr/src/app
+  COPY . .
+
+  RUN bundle install
+  RUN apt-get update && apt-get install -y nodejs
+  RUN rails db:migrate
+
+  EXPOSE 3000
+
+  CMD rails s
+
+commands:
+
+  - docker build -t rails .
+  - docker run -it --name ruby -p 3000:3000 rails
