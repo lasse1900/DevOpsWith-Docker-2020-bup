@@ -1,0 +1,9 @@
+Docker image:
+
+- https://hub.docker.com/repository/docker/lasse1900/countries
+
+Docker commands to run the image locally:
+
+-	docker pull lasse1900/countries:latest
+-	docker run -it --rm -v /app/node_modules -p 3000:3000 lasse1900/countries:latest
+
