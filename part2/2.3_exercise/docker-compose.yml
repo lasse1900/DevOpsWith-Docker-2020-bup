@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  backend:
+    image: back-img
+    build: ./backend
+    ports:
+      - 4001:8000
+    environment:
+      - FRONT_URL=http://localhost:4000
+
+  frontend:
+    image: front-img
+    build: ./frontend
+    ports:
+      - 4000:5000
+    environment:
+      - API_URL=http://localhost:4001
+
