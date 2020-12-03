@@ -1,0 +1,5 @@
+Commands used (no change to source files):
+
+  - docker-compose up
+  - docker-compose stop
+  - docker-compose up --scale compute=3

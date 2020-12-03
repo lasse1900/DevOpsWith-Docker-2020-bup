@@ -1,6 +1,8 @@
-1)	First created images as before in ex1.12
-3) run build commands for images
-2)	Then run docker-compose.yml
+1) First created images as before in ex1.12
+2) front image from: https://github.com/docker-hy/frontend-example-docker
+3) backend image from: https://github.com/docker-hy/backend-example-docker
+4) run build commands for images
+5) Then run docker-compose.yml
 
 Front:
 
