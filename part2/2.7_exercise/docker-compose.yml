@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  backend:
+    image: ml-kurkkumopo-backend
+    volumes:
+      - model:/src/model
+    ports:
+      - 5000:5000
+    environment:
+      - API_URL=http://localhost:3000
+
+  frontend:
+    image: ml-kurkkumopo-frontend
+    ports:
+      - 3000:3000
+    environment:
+      - API_URL=http://localhost:5000
+
+  training:
+    image: ml-kurkkumopo-training
+    volumes:
+      - model:/src/model
+      - image:/src/imgs
+
+volumes:
+  model:
+  image:
