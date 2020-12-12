@@ -1,0 +1,49 @@
+version: "3.8"
+
+services:
+
+  backend:
+    container_name: backend
+    image: backend-image
+    volumes:
+      - ./logs.txt:/usr/app/logs.txt
+    environment:
+      - FRONT_URL=http://localhost
+      - REDIS=redis
+      - DB_USERNAME=user
+      - DB_PASSWORD=example
+      - DB_NAME=datamodel
+      - DB_HOST=postgres
+
+  frontend:
+    container_name: frontend
+    image: frontend-image
+    ports:
+      - 5000:5000
+    environment:
+      - API_URL=http://localhost/api
+
+  redis:
+    image: redis
+    container_name: redis
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - ./redis:/data
+
+  postgres:
+    image: postgres
+    container_name: postgres
+    volumes: 
+      - ./database:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=example
+      - POSTGRES_DB=datamodel
+
+  nginx:
+    image: nginx
+    container_name: nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
