@@ -4,11 +4,8 @@
 
 2. run docker builds with frontend and backend
 
-- docker build -t frontend .
-- docker build -t backend .
-- docker build -t redis .
-- docker build -t postgres .
-- docker build -t nginx .
+  - docker build -t frontend-image
+  - docker build -t backend-image
 
 3. added docker-compose.yml
 4. run docker-compose up
