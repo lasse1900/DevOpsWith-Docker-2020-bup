@@ -1,0 +1,1 @@
+- run command: chmod 777 logs.txt
