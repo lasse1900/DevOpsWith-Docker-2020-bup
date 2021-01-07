@@ -1,8 +1,5 @@
-
-# ************* BACKEND ***********
-
 FROM ubuntu:20.04 
-WORKDIR /usr/app
+WORKDIR /app
 
 RUN apt-get update && apt-get install -y curl
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash

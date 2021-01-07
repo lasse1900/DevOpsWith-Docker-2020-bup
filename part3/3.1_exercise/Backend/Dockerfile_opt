@@ -1,0 +1,15 @@
+FROM node:alpine
+WORKDIR /app
+
+RUN apk add --update curl python ca-certificates && \
+  apk --no-cache add curl  && \
+  apk add --update nodejs nodejs-npm && \
+  apk del curl && \ 
+  rm -rf /var/lib/apt/lists/*
+
+COPY . .
+RUN npm install
+EXPOSE 8000
+ENV FRONT_URL=http://localhost:5000
+
+CMD npm start

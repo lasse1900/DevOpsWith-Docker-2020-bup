@@ -1,0 +1,14 @@
+FROM node:alpine
+WORKDIR /app
+
+
+RUN apk add --no-cache git nodejs nodejs-npm && \
+  npm install && \
+  apk del git
+
+COPY . .
+RUN npm install
+EXPOSE 5000
+ENV API_URL=http://localhost:8000
+
+CMD npm start
