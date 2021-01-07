@@ -1,0 +1,16 @@
+~/workspace/HUT_Docker/harkka_2.9$ docker ps -a
+CONTAINER ID   IMAGE            COMMAND                  CREATED              STATUS              PORTS                    NAMES
+67f01edaf8cc   postgres         "docker-entrypoint.s…"   About a minute ago   Up About a minute   5432/tcp                 postgres
+a98d107e36da   redis            "docker-entrypoint.s…"   About a minute ago   Up About a minute   6379/tcp                 redis
+169474cec8a6   backend-image    "/bin/sh -c 'npm sta…"   About a minute ago   Up About a minute   8000/tcp                 backend
+343ae09a695b   nginx            "/docker-entrypoint.…"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp       nginx
+cb97da252de1   frontend-image   "/bin/sh -c 'serve -…"   About a minute ago   Up About a minute   0.0.0.0:5000->5000/tcp   frontend
+
+~/workspace/HUT_Docker/harkka_2.9$ docker images
+REPOSITORY       TAG       IMAGE ID       CREATED         SIZE
+frontend-image   latest    99da772969b4   3 minutes ago   281MB
+backend-image    latest    5d61d75f8022   7 minutes ago   105MB
+postgres         latest    1f1bd4302537   8 days ago      314MB
+nginx            latest    ae2feff98a0c   3 weeks ago     133MB
+redis            latest    ef47f3b6dc11   3 weeks ago     104MB
+alpine           3.8       c8bccc0af957   11 months ago   4.41MB
