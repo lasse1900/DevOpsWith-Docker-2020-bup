@@ -1,8 +1,4 @@
-
-function fail {
-    printf '%s\n' "$1" >&2
-    exit 1
-}
+#! /bin/bash
 
 mkdir /usr/app
 cd /usr/app
@@ -11,7 +7,15 @@ echo "Input Github repo-url:"
 read GITHUB_URL
 echo $GITHUB_URL
 git clone $GITHUB_URL .
-test -f Dockerfile || fail "--- No Dockerfile !! ---"
+
+FILE="Dockerfile"
+if [ -e "$FILE" ]
+then
+  echo "$FILE exists"
+else
+  echo " --- $FILE missing --- !"
+  exit 1
+fi
 
 echo "Insert Docker username:"
 read DOCKER_USER
