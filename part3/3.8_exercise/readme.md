@@ -1,0 +1,1 @@
+Kubernetes diagram with two services, a videogame server and a blog website.
